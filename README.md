@@ -1,1 +1,5 @@
 # phaserJS
+
+I'll be using this repo to store my on going progress with building games using Phaser.js. I am comfortable working in Javascript, but have not used Phaser.js before. I'm utilizing CodeCademy Pro to learn this framework, so my first few projects will be those I build while working my way through the course. Once I've finished the course, I may improve some of the games I built during it in an effort to improve my knowledg base and skill. However, my intention is to create a series of original games - well, semi-original. Is anything really original anymore? Maybe someday there will be something new. We'll see it on the horizon as it approaches.... 
+
+Yea, sorry about the tangent. I do that. I would then like to try my hand at creating a game desinged for smartphones and tablets using cordova, and hopefully - cross my fingers - get one publish on the Google PLay store. I'm not holding my breathe for the Apple App Store.
