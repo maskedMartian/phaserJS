@@ -1,0 +1,40 @@
+Learn Phaser: Animations and Tweens
+Sprite Sheets
+
+One common tool used to create animations is a sprite sheet that contains all the images that depict how a sprite can move. Take for instance:
+sprite sheet of four frames showing Codey walking
+
+As we move through the frames (individual images) of the sprite sheet, Codey starts walking!
+
+To implement an animation in our game we need to:
+
+    Load in the sprite sheet.
+    Create the sprite object.
+    Create the animation by selecting specific frames from the sprite sheet.
+    Play the animation.
+
+Let’s focus first on loading in our sprite sheet:
+
+class ExampleScene extends Phaser.Scene {
+  preload() {
+    this.load.spritesheet( 'spriteKey' , 'spriteSheet.png', { frameWidth: 100, frameHeight: 100 });
+  }
+}
+
+this.load.spritesheet() takes three arguments: the sprite’s key as a string, the location of the sprite sheet, and an object with the properties frameWidth and frameHeight these properties indicate how many pixels wide and tall the individual frames are. Be sure to use accurate values since inaccurate frameWidth or frameHeight values will result in a misshaped sprite or a nonfunctioning animation!
+
+Now, let’s load in Codey’s sprite sheet!
+Instructions
+1.
+
+In game.js, inside GameScene‘s preload() method, call this.load.spritesheet() with these arguments in the following order:
+
+    'codey'
+    'https://content.codecademy.com/courses/learn-phaser/Cave%20Crisis/codey_sprite.png'
+    { frameWidth: 72, frameHeight: 90 }
+
+We won’t see anything until the next exercise, but we’re off to a great start!
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.

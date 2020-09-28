@@ -1,0 +1,87 @@
+Learn Phaser: Animations and Tweens
+Tweens
+
+While animations allow us to play through the frames of a sprite sheet, tweens help refine the transition from frame to frame. By creating in-between frames, sprites undergoing changes like their size and positions appear smoother.
+
+One common usage of tweens is to convey movement, for instance:
+
+class ExampleScene extends Phaser.Scene {
+  // … Previous code
+  create () {
+    gameState.exampleSprite = this.physics.sprite.add(0, 100, 'example');
+
+    gameState.moveTween = this.tweens.add({
+      targets: gameState.exampleSprite,
+      x: 300,
+      ease: 'Linear',
+      duration: 3000,
+      repeat: -1,
+      yoyo: true
+    });
+
+    gameState.moveTween.play();
+
+    // Later on … 
+    gameState.moveTween.stop();
+  }
+}
+
+In the code above we called this.tweens.add() to create a tween saved to gameState.moveTween. The object that we 
+provided as an argument:
+
+    targets -  determines which Sprites are affected (we could’ve also used an array)
+    x       - determines the final x-coordinate of gameState.exampleSprite.
+    ease    - describes how the tween plays.
+        We provided a value of Linear which means it plays at a constant speed. But if we wanted some variation, 
+        we could have provided another easing function: https://gamemechanicexplorer.com/#easing-11
+    duration determines how long the tween lasts (in milliseconds).
+    repeat is how many times the tween runs (use -1 to continuously play).
+    yoyo is a true or false value, if it’s true, the tween plays in reverse for the Sprite to return back to its 
+    original state (size, position, angle, etc.) before the tween started. If it’s false, then the Sprite will 
+    remain as is after the tween finishes.
+    To play the tween, we call .play() on gameState.moveTween.
+    To stop playing the tween, we call .stop() on gameState.moveTween.
+
+Let’s see this for ourselves!
+Instructions
+1.
+
+Let’s add the tween inside our create() method. Since our tween will be related to our enemy sprite, assign gameState.enemy.move a value of this.tweens.add().
+
+Supply this.tweens.add() an argument of an object will make the tween:
+
+    targets gameState.enemy.
+    moves the sprite to the 320 x-coordinate.
+    have an ease of 'Linear'.
+    lasts ( or has a duration) for 1800 milliseconds.
+    continuously repeat.
+    yoyo back and forth.
+
+2.
+
+We’ve got the tween playing, but we should also include a means of stopping it.
+
+In create(), locate the Overlap object of Codey and the exit. Inside the callback function of that Overlap object, call gameState.enemy.move.stop().
+
+After clearing this checkpoint, see what happens when Codey reaches the exit!
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.
+Code Editor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Web Browser

@@ -1,0 +1,71 @@
+Learn Phaser: Animations and Tweens
+Tween Callbacks
+
+What if we wanted something to happen after a tween finished playing? Or while it’s looping? How about before it 
+starts playing? Conveniently, Phaser allows us to provide the tween with callback functions.
+
+To use these callbacks, inside the object we passed to this.anims.add(), we assign the following keys callback 
+functions:
+
+    onStart - if we want a function to execute when the tween starts.
+    onYoyo - if we want a function to execute when the tween starts going back to the original position.
+    onRepeat - if we want a function to execute each time the tween plays.
+    onComplete - if we want a function to execute when the tween finishes.
+
+If we wanted to remove our sprite after its tween finished playing, we could call:
+
+class ExampleScene extends Phaser.Scene {
+  // … Previous code
+  create () {
+    gameState.moveTween = this.tweens.add({
+      target: gameState.exampleSprite,
+      x: 300,
+      ease: 'Linear',
+      duration: 3000,
+      repeat: 1,
+      yoyo: true,
+      // Will execute after the tween finishes playing:
+      onComplete: function() {
+        gameState.exampleSprite.destroy();
+      }
+    });
+
+    gameState.moveTween.play();
+  }
+}
+
+With our tween in place, after our tween plays, the callback for onComplete executes, and destroys 
+gameState.exampleSprite!
+
+Let’s incorporate a tween callback in our code.
+Instructions
+1.
+
+We’ve provided a new function growSnowman inside of create(). We want to execute this function every time the 
+tween repeats.
+
+Inside the argument passed into this.tweens.add(), add a key of onRepeat and assign it a value of growSnowman.
+
+After you clear this checkpoint, you should see the snowman grow every time the tween repeats! Now Codey has to 
+reach the exits before the snowman gets too big!
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.
+Code Editor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Web Browser

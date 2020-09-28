@@ -1,0 +1,43 @@
+Learn Phaser: Animations and Tweens
+Animating
+
+✓ Load in sprite sheet
+✓ Create the sprite object
+✓ Create animation from sprite sheet
+☐ Animate sprite
+
+We have everything else set up, now let’s bring our sprite to life!
+
+Inside update(), we can include our logic for controlling our sprite and animating it however we want.
+
+class ExampleScene extends Phaser.Scene {
+  // … Previous code
+  update() {
+    if (gameState.cursors.right.isDown) {
+      gameState.exampleSprite.setVelocityX(100);
+      gameState.exampleSprite.anims.play('movement', true);
+    }
+  }
+}
+
+In the code above, if the right arrow key is pressed gameState.exampleSprite moves to the right. Then we play the animation by calling gameState.exampleSprite.anims.play('movement', true):
+
+    gameState.exampleSprite.anims allows us to access all the animations we created.
+    anims.play() will play all the animations, or a single animation if passed an argument.
+    We provide .anims.play() with two arguments:
+        the first is an animation key, in this case it’s the movement animation.
+        the second is a boolean, which won’t play the animation from the start, if it’s already in progress.
+
+Let’s animate Codey!
+Instructions
+1.
+
+In update(), there is an if statement already set up that moves Codey to the right.
+
+Inside that if statement, call anims.play() on gameState.player. Pass the arguments 'run' and true to .play().
+
+After passing this checkpoint, while in game, press your right arrow key to move Codey and see the current state of animation.
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.

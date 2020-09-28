@@ -1,0 +1,46 @@
+Learn Phaser: Animations and Tweens
+Pausing Animations
+
+Learning how to start an animation is one thing, pausing it is another. When it’s game over, or if we decide to include a pause option, we might opt to pause one or all of our animations.
+
+In Phaser, we can call exampleSprite.anims.pause() on the sprite to put a pause on its animation.
+
+We can also call this.anims.pauseAll() to pause all animations in a Scene.
+
+Let’s try out these convenient methods in our own game.
+Instructions
+1.
+
+We’ve included animated snowmen in the middle of the main platform. We also added in an Overlap object that checks when Codey comes in contact with a snowman, it works very similarly to a Collider object except it allows the sprites to overlap.
+
+The Overlap object is in the create() method. Inside the callback function of the Overlap object, pause the animation of the snowman when the two sprites come into contact. Do this by calling gameState.enemy.anims.pause().
+
+Test out what happens in the game after you clear this checkpoint!
+2.
+
+We’ve paused one snowman animation, but let’s see what happens when we pause all the animations!
+
+Inside the same callback function of the previous step, call this.anims.pauseAll().
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.
+Code Editor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+Web Browser

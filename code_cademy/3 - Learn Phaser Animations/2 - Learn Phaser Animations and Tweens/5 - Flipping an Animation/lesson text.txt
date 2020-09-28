@@ -1,0 +1,44 @@
+Learn Phaser: Animations and Tweens
+Flipping an Animation
+
+Codey’s animation looks great moving to the right. But if we apply the exact same logic to move left, Codey looks like they’re being blown back by some wind or doing the moonwalk. (While it’s cool, it isn’t exactly what we’re going for).
+
+As a fix, we need to set the .flipX property of the animation to be true or false depending on which direction we want our sprite to turn.
+
+class ExampleScene extends Phaser.Scene {
+  // … Previous code
+  update() {
+    if (gameState.cursors.right.isDown) {
+      gameState.exampleSprite.setVelocityX(100);
+      gameState.exampleSprite.anims.play('movement', true);
+      // The sprite is facing its original direction
+      gameState.exampleSprite.flipX = false;
+    } else if ( gameState.cursors.left.isDown) {
+      gameState.exampleSprite.setVelocityX(-100);
+      gameState.exampleSprite.anims.play('movement', true);
+      // The sprite is facing its flipped direction
+      gameState.exampleSprite.flipX = true;
+    }
+  }
+}
+
+When our Sprite is moving to the right, we assign .flipX to false, since our sprite sheet original has the sprite facing the right. Otherwise, when moving left, we assign .flipX to true so that it’s flipped on its x-axis and facing left.
+
+By manipulating .flipX we cam animate our sprite with a sprite sheet that faces one direction!
+
+Let’s now add this into our game!
+Instructions
+1.
+
+Let’s first get Codey turning to the left. In the else if condition, assign gameState.player.flipX a value of true.
+
+After you clear this step, make Codey move to the left and then back to the right. It seems like Codey can’t turn back to the right. But don’t worry, we’ll fix this behavior in the next step.
+2.
+
+We should allow Codey to turn back to the right when need be.
+
+In the if condition, assign gameState.player.flipX a value of false.
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.
