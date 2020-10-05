@@ -1,0 +1,41 @@
+Learn Phaser: Cameras and Effects
+Review: Credits
+
+Throughout this lesson you learned many ways to polish the effects in Phaser games, we’ve added:
+
+    Cameras
+    Special Camera Effects (Fade Out and Shake)
+    Particle Emitters
+    Tinted Sprites
+    Parallax Scrolling
+
+What an incredible series of good looking features our game has now!
+
+Now that our game is looking fabulous, let’s make a little credits scene together with Codey sledding!
+Instructions
+
+We’ve added in a Credits scene after the fourth level, featuring Codey sledding away to safety. Use your skills with effects to add in a background, and make sure to put your name in there, congratulations on an amazing game!
+Concept Review
+Sorry! Looks like this cheatsheet isn't available yet.
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.
+Code Editor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+Web Browser

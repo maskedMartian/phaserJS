@@ -1,0 +1,30 @@
+Learn Phaser: Cameras and Effects
+Changing the Weather
+
+If a long journey goes on for several days, how do we communicate that length to the folks playing our game? We’re going to use a few strategies to add in concepts of ambience, lighting, time of day, and weather to our game to make these same assets feel like the world they’re apart of turns and changes like our own.
+
+The sky’s color is the easiest thing for us to change, by changing the background color of the game. Since we actually want to update the color of the sky multiple times within our single game, we can make a new “background”, a rectangle with the same dimensions as our canvas. We will be able to update the color of our new background with the appropriate color of the sky.
+Instructions
+1.
+
+Let’s create the background that’s going to become the sky now! In create(), before making any of our other backgrounds, we want to make gameState.bgColor, a GameObject rectangle (so that we can update it to be different colors).
+
+Give this.add.rectangle() the following arguments, saving the results in gameState.bgColor:
+
+    0,
+    0,
+    config.width,
+    config.height,
+    0x00aaff
+
+Then call .setOrigin(0, 0) on it to center it.
+2.
+
+We’ve created a .setWeather() method to help update the background and any other changes to our levels we might need. Inside .setWeather() after checking if weather exists, set gameState.bgColor.fillColor equal to bgColor.
+3.
+
+In order for this to take effect, we need to add weather information to our Levels! Find where we define Level1 and, inside the constructor, set this.weather to 'afternoon'.
+4.
+
+For Level2 set this.weather to 'twilight'.
+Concept Review

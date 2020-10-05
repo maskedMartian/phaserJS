@@ -1,0 +1,16 @@
+Learn Phaser: Cameras and Effects
+Levels
+
+Now that we have a system for specifying where platforms should be in each level, we can create multiple levels! 
+Each level is going to inherit from our customized Level class and then inject information about the level inside 
+the constructor. By doing this we’re able to separate each of our Levels from one-another!
+Instructions
+1.
+
+Below the definition for Level, create a new Level1 class that inherits from Level.
+2.
+
+Give Level1 a .constructor() method that calls super('Level1') and then defines this.heights as an array.
+3.
+
+Lastly, change the property for scene in our config object to point to Level1 instead of Level.

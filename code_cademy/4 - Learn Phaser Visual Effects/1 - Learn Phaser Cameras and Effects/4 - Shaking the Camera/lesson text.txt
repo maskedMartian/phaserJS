@@ -1,0 +1,47 @@
+Learn Phaser: Cameras and Effects
+Shaking the Camera
+
+Camera shake is an indispensible effect in the modern video game. It hints to the player that something jarring and surprising is happening. When a player falls down we’re going to start the level over again, but shake the camera a little bit as if to say “let’s try that a little differently next time.”
+
+Camera shake is an easy effect to add in Phaser, just call the .shake() method on the camera. .shake() can take the following arguments:
+
+    duration the length of the shake
+    intensity how strong the camera shakes
+    force whether or not to start the effect from the beginning if it has already started
+    callback the function to call each frame while the shake is happening. Accepts two arguments: a reference to the camera and then a duration from 0-1
+    context the context for the previous function, defaults to the Scene
+
+This command:
+
+this.cameras.main.shake(100, .8)
+
+Will shake the main camera fairly vigorously for 100 milliseconds. Whereas this command:
+
+this.cameras.main.shake(200, .3, true, function(camera, progress) {
+  if (progress > .5) {
+    gameState.player.setTint(0xff0000);
+  }
+});
+
+Will lighlty shake the camera for 200 milliseconds. Halfway through the shake’s completion it will turn gameState.player red.
+Instructions
+1.
+
+We’ve added a little more space to the world in this.physics.world.setBounds() in order to make it so that there’s one Codey-length beneath the world we see (that the camera won’t pan to). We want to make this our “death plane”, if the player falls down there, it means they’ve lost. Let’s check if the player has fallen down inside the update() method of our generic Level layout.
+
+Inside update() create an if-statement that checks if gameState.player.y is greater than gameState.height.
+2.
+
+Now we want to ever-so-slightly scold the player of our game for losing. Within our if-statement, shake the camera to show your disappointment. Call this.cameras.main.shake() with the following arguments:
+
+    240 (duration of the shake)
+    .01 (very subtle shake)
+    false (or it will continuously “start” to shake and we won’t see anything at all)
+    function(camera, progress) {} (our callback, we’ll add logic in the next step)
+
+3.
+
+Lastly, we want to restart the level after the shake is completed. Let’s use our callback for that!
+
+Within our callback add in the logic that will restart the level when progress is greater than .9, by calling this.scene.restart(this.levelKey).
+Concept Review

@@ -1,0 +1,42 @@
+Learn Phaser: Cameras and Effects
+Determining The Scroll Factor
+
+In order to accomplish this effect, we’ll update the scroll factor of each of our background layers. The scroll factor is how fast an object scrolls (with respect to our camera). By default, all GameObjects have a scroll factor of 1 (scrolls as fast as everything else). A static object that we always want on-screen should have a scroll factor of 0. We can set the scroll factor with the GameObject method .setScrollFactor(). But what should we set the scroll factor to?
+
+The scroll factor is the rate we want our background to move. There are three numbers that we’ll use to determine it: the width of the game, the width of the background, and the width of the window itself. How do we determine the rate that a smaller background should move so that the entire background only shifts as fast as the player moves across the level? With a formula!
+
+const windowWidth = config.width;
+const gameWidth = 2000; // the size of the largest background
+const someBackgroundWidth = gameState.someBackground.getBounds().width
+
+const someBackgroundScrollFactor = (someBackgroundWidth - windowWidth) / (gameWidth - windowWidth)
+gameState.someBackground.setScrollFactor(someBackgroundScrollFactor)
+
+Instructions
+1.
+
+At the end of .createParallaxBackgrounds() set the scroll factor for gameState.bg1 and gameState.bg2 with the given formula.
+Concept Review
+Sorry! Looks like this cheatsheet isn't available yet.
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.
+Code Editor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+Web Browser

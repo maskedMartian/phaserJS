@@ -1,0 +1,45 @@
+Learn Phaser: Cameras and Effects
+Fading Out
+
+Fading out of a Scene seems like a fitting transition. A cue taken from the film industry, fade-out offers a much softer effect than the shake but is as concise in Phaser. .fade() is a camera method that takes the following arguments:
+
+    duration, the length of the fade in milliseconds.
+    red, the 0-255 integer value of how red the fadeout color is.
+    green, the 0-255 integer value of how green the fadeout color is.
+    blue, the 0-255 integer value of how blue the fadeout color is.
+    force, starts the fadeout over if it’s already been started.
+    callback, the callback to use during the fadeout effect.
+    context, the context to use for the callback function (defaults to the Scene the camera is in).
+
+We can call:
+
+this.cameras.main.fade(100, 255, 255, 255, false, function(camera, progress) {
+  if (progress > .5) {
+    gameState.player.x = 5;
+  }
+});
+
+In the above code the camera fades to white very quickly. Halfway through the fadeout, the gameState.player gets moved 5 pixels from the left edge of the game.
+Instructions
+1.
+
+In order to transition from one level to another, we need something to indicate the end of the level. In Codey IV: Tundra Terror we’re going to use a video game staple: the bonfire! What we need to do is add in a new bonfire sprite to our physics engine. Then, when Codey interacts with the bonfire, we fade out the level and put Codey in the new one!
+
+Within .levelSetup() we’ve created our bonfire and started writing a overlap function for it. Let’s implement what happens when we get to the bonfire.
+
+Within the callback in this.physics.overlap(), fade the camera to black by calling this.cameras.main.fade() with the following arguments:
+
+    800 (the duration)
+    0 (redness – black has (0, 0, 0) RGB or red-green-blue value)
+    0 (blueness)
+    0 (greenness)
+    false (don’t replay the fadeout)
+    function(camera, progress) {} (our callback function that we’ll fill in next checkpoint)
+
+2.
+
+Inside the callback within our fadeout check if the fade is more than 90% done with progress > .9. If it is, start the next scene by calling this.scene.start(this.nextLevel[this.levelKey]).
+Concept Review
+Sorry! Looks like this cheatsheet isn't available yet.
+Community Forums
+Still have questions? View this exercise's thread in the Codecademy Forums.

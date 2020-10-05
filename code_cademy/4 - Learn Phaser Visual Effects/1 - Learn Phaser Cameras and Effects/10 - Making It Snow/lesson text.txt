@@ -1,0 +1,43 @@
+Learn Phaser: Cameras and Effects
+Making It Snow
+
+Where does all of the snow in our game world come from? We assume it falls from the sky, but how? In order to enhance the realism of our game we want the snow to fall as the player crosses through the tundra. In order to do that we’ll need to use a Particle Emitter. A Particle Emitter creates a pool of particles. A particle is a small, repeated sprite. A pool is a collection of these particles collected for reuse. Instead of constantly dropping new snowflakes, we will “move” the snowflakes that have dropped already to the top of the screen and drop them down again. We can add our Particle Emitter in create() like so:
+
+create() {
+  gameState.particles = this.add.particles('marble');
+
+  gameState.emitter = gameState.particles.createEmitter({
+    x: { min: 0, max: 200 },
+    y: 0,
+    lifespan: 2000,
+    speedY: { min:10, max: 200},
+    scale: .2,
+    quantity: 10,
+    blendMode: 'ADD'
+  })
+}
+
+This creates a particle emitter that uses a 'marble' asset we’ve preloaded. It creates the particles at the top of the screen and pushes them down screen. It creates these “marbles” at x-coordinates between 0 and 200 and gives them variable speeds as they fall down the screen.
+Instructions
+1.
+
+Inside the .createSnow() method we’re going to add in our particle effects! First start off by creating gameState.particles. Add them in with this.add.particles(), passing in the argument 'snowflake'.
+2.
+
+Now create the emitter as gameState.emitter by calling gameState.particles.createEmitter() with the following object to start making it snow!
+
+{
+  x: {min: 0, max: config.width * 2 },
+  y: -5,
+  lifespan: 2000,
+  speedX: { min:-5, max: -200 },
+  speedY: { min: 200, max: 400 },
+  scale: { start: 0.6, end: 0 },
+  quantity: 10,
+  blendMode: 'ADD'
+}
+
+3.
+
+Great! Just one problem: it scrolls off the screen with the camera! Let’s fix that by setting the scroll factor of our emitter by calling gameState.emitter.setScrollFactor() with 0 as an argument.
+Concept Review
